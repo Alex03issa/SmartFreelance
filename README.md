@@ -454,6 +454,8 @@ npm run dev
 * NFT metadata depends on IPFS (Pinata)
 * Designed for **Algorand TestNet only**
 * Not production-ready
+
+---
 ## Future Work & Platform Expansion
 
 This Proof of Concept is designed as a **foundation** for a larger, production-ready Web3 freelance platform.
