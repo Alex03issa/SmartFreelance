@@ -1,8 +1,6 @@
 <img width="1828" height="882" alt="image" src="https://github.com/user-attachments/assets/a556ed87-ba53-4458-a16a-6917b006b53d" />
 ---
-
-````md
-# SmartFreelance – Web3 Freelance Marketplace (POC)
+SmartFreelance – Web3 Freelance Marketplace (POC)
 
 SmartFreelance is a **Web3-enabled freelance marketplace proof of concept** built on **Algorand TestNet**.  
 It demonstrates wallet-based identity, agreement-based payment flows, and NFT-based delivery proof.
@@ -12,6 +10,7 @@ This project is a **frontend-focused POC** with mocked marketplace data and **re
 > ⚠️ This is a Proof of Concept. No backend database or smart-contract escrow is used.
 
 ---
+````md
 
 ## Tech Stack
 
