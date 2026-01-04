@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -----------------------------
+   SmartFreelance theme tokens
+   Default: dark
+   ----------------------------- */
+@layer base {
+  :root {
+    --sf-bg: #020617;            /* slate-950 */
+    --sf-surface: rgba(2, 6, 23, 0.45);
+    --sf-surface-strong: rgba(2, 6, 23, 0.75);
+    --sf-border: rgba(148, 163, 184, 0.18); /* slate-400 @ low */
+    --sf-text: #e2e8f0;          /* slate-200 */
+    --sf-subtext: rgba(226, 232, 240, 0.70);
+    --sf-accent-a: #22d3ee;      /* cyan-400 */
+    --sf-accent-b: #6366f1;      /* indigo-500 */
+    color-scheme: dark;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    background: var(--sf-bg);
+    color: var(--sf-text);
+  }
+}
+
+/* -----------------------------
+   App primitives (glass cards)
+   ----------------------------- */
+@layer components {
+  .sf-card {
+    background: var(--sf-surface);
+    border: 1px solid var(--sf-border);
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .sf-card-strong {
+    background: var(--sf-surface-strong);
+    border: 1px solid var(--sf-border);
+    border-radius: 24px;
+  }
+
+  .sf-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--sf-border) 90%, transparent),
+      transparent
+    );
+  }
+
+  .sf-accent-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sf-accent-a), transparent);
+    opacity: 0.35;
+  }
+
+  /* -----------------------------
+     DaisyUI compatibility patches
+     These fix your "Wallet" button text, inputs, badges, modals on dark
+     ----------------------------- */
+
+  /* Buttons */
+  .btn {
+    border-radius: 16px;
+  }
+
+  .btn-outline {
+    color: var(--sf-text) !important;
+    border-color: var(--sf-border) !important;
+    background: transparent !important;
+  }
+
+  .btn-outline:hover {
+    background: color-mix(in srgb, var(--sf-surface-strong) 65%, transparent) !important;
+    border-color: color-mix(in srgb, var(--sf-border) 75%, white 10%) !important;
+  }
+
+  .btn-ghost {
+    color: var(--sf-text) !important;
+  }
+
+  .btn-ghost:hover {
+    background: color-mix(in srgb, var(--sf-surface-strong) 55%, transparent) !important;
+  }
+
+  /* Primary */
+  .btn-primary {
+    border: none !important;
+    color: white !important;
+    background: linear-gradient(135deg, var(--sf-accent-a), var(--sf-accent-b)) !important;
+  }
+
+  /* Inputs */
+  .input,
+  .select,
+  .textarea {
+    border-radius: 16px;
+    background: color-mix(in srgb, var(--sf-surface-strong) 55%, transparent) !important;
+    color: var(--sf-text) !important;
+    border-color: var(--sf-border) !important;
+  }
+
+  .input::placeholder,
+  .textarea::placeholder {
+    color: color-mix(in srgb, var(--sf-text) 55%, transparent) !important;
+  }
+
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+    outline: none !important;
+    border-color: color-mix(in srgb, var(--sf-accent-a) 55%, var(--sf-border)) !important;
+  }
+
+  /* Badges */
+  .badge {
+    border-radius: 9999px;
+  }
+
+  .badge-outline {
+    color: var(--sf-text) !important;
+    border-color: var(--sf-border) !important;
+    background: color-mix(in srgb, var(--sf-surface-strong) 35%, transparent) !important;
+  }
+
+  /* Modals */
+  .modal {
+    background-color: rgba(2, 6, 23, 0.65) !important;
+  }
+
+  :root[data-sf-theme="light"] .modal {
+    background-color: rgba(15, 23, 42, 0.25) !important;
+  }
+
+  .modal-box {
+    background: var(--sf-surface-strong) !important;
+    color: var(--sf-text) !important;
+    border: 1px solid var(--sf-border) !important;
+    border-radius: 24px !important;
+  }
+}

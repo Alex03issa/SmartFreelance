@@ -1,0 +1,29 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  "dotenv.enableAutocloaking": false,
+
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file"
+  },
+
+  // --- Prevent "phantom touch" on files Vite treats as critical ---
+  "[css]": { "editor.formatOnSave": false },
+  "[scss]": { "editor.formatOnSave": false },
+  "[less]": { "editor.formatOnSave": false },
+
+  // vite.config.ts is TypeScript, so we disable format-on-save specifically for it:
+  "prettier.disableLanguages": ["css", "scss", "less"],
+
+  // Optional but recommended: avoid any on-save actions that can cascade
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": false,
+  "files.autoSave": "off"
+}
