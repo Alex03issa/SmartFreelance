@@ -454,6 +454,44 @@ npm run dev
 * NFT metadata depends on IPFS (Pinata)
 * Designed for **Algorand TestNet only**
 * Not production-ready
+## Future Work & Platform Expansion
+
+This Proof of Concept is designed as a **foundation** for a larger, production-ready Web3 freelance platform.
+
+Planned future improvements include:
+
+### Backend & Database
+- Introduction of a persistent backend with a database (e.g. PostgreSQL)
+- Server-side storage for:
+  - Users
+  - Jobs
+  - Proposals
+  - Agreements
+  - Activity history
+- Multi-device consistency (not browser-local)
+
+### Smart Contracts & Escrow
+- Replacement of UI-simulated flows with **Algorand smart contracts**
+- On-chain agreement logic where:
+  - Funds are locked in escrow
+  - Delivery, approval, and payout are enforced by contract rules
+- Automatic execution of agreement outcomes:
+  - No manual trust between parties
+  - No waiting for off-chain actions
+  - No unilateral fund control
+
+### Fully Enforced Agreement Lifecycle
+- Agreement creation, funding, delivery, approval, and payout handled **entirely on-chain**
+- Smart contracts act as the single source of truth
+- NFTs and payments become contract-governed artifacts
+
+### Platform-Level Features
+- Dispute resolution mechanisms
+- Reputation and history tied to wallet addresses
+- Multi-role permissions enforced at contract level
+- MainNet deployment readiness
+
+This POC demonstrates the **user experience and technical feasibility** of the platform, while future phases focus on **trust minimization, automation, and scalability**.
 
 ---
 
