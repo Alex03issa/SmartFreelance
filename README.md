@@ -1,4 +1,4 @@
-<img width="1828" height="882" alt="image" src="https://github.com/user-attachments/assets/a556ed87-ba53-4458-a16a-6917b006b53d" />
+<img width="1838" height="885" alt="image" src="https://github.com/user-attachments/assets/601cd8ad-506e-4733-86f2-fae276ae8912" />
 
 ---
 Algo_SmartFreelance – Web3 Freelance Marketplace (POC)
