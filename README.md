@@ -1,3 +1,4 @@
+<img width="1828" height="882" alt="image" src="https://github.com/user-attachments/assets/a556ed87-ba53-4458-a16a-6917b006b53d" />
 Perfect — below is the **final corrected README**, **same format and tone**, with a **proper backend ENV configuration section** that clearly explains:
 
 * `.env` usage
