@@ -367,7 +367,7 @@ const Home: React.FC = () => {
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-2xl bg-gradient-to-br from-teal-500 to-indigo-600 shadow-sm" />
             <div>
-              <div className="text-base font-extrabold leading-tight text-slate-100">SmartFreelance</div>
+              <div className="text-base font-extrabold leading-tight text-slate-100">Algo - SmartFreelance</div>
               <div className="mt-0.5 flex items-center gap-2 text-xs text-slate-400">
                 <span>Dashboard</span>
                 <span className="h-1 w-1 rounded-full bg-slate-700" />
