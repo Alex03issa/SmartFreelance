@@ -93,8 +93,13 @@ For Netlify:
 # Algorand Wallet integrations
 
 The template comes with [`use-wallet`](https://github.com/txnlab/use-wallet) integration, which provides a React hook for connecting to an Algorand wallet providers. The following wallet providers are included by default:
-- TestNet:
+- LocalNet:
+- - [KMD/Local Wallet](https://github.com/TxnLab/use-wallet#kmd-algorand-key-management-daemon) - Algorand's Key Management Daemon (KMD) is a service that manages Algorand private keys and signs transactions. Works best with AlgoKit LocalNet and allows you to easily test and interact with your dApps locally.
+- TestNet and others:
 - - [Pera Wallet](https://perawallet.app).
+- - [Defly Wallet](https://defly.app).
+- - [Exodus Wallet](https://www.exodus.com).
+- - [Daffi Wallet](https://www.daffi.me).
 
 Refer to official [`use-wallet`](https://github.com/txnlab/use-wallet) documentation for detailed guidelines on how to integrate with other wallet providers (such as WalletConnect v2). Too see implementation details on the use wallet hook and initialization of extra wallet providers refer to [`App.tsx`](./src/App.tsx).
 
