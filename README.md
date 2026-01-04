@@ -150,12 +150,6 @@ python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 * Required for **Delivery NFT metadata generation**
 
 ---
-Understood. Below is the **fully corrected, reviewer-safe README**, rewritten **in the exact same structure and Markdown style you provided**, with **only precise clarifications added**.
-Nothing experimental is removed; nothing exaggerated remains.
-
-You can **copy–paste this as-is**.
-
----
 
 ## Wallet Connection
 
