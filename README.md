@@ -461,9 +461,4 @@ npm run dev
 
 **All rights of this idea are reserved to Alexander Issa.**
 
----
-
-```
-
-
 
