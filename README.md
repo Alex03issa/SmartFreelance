@@ -1,274 +1,493 @@
-<div align="center">
-<a href="https://github.com/algorandfoundation/algokit-cli"><img src="https://raw.githubusercontent.com/algorandfoundation/algokit-cli/main/docs/imgs/banner.png" width=60%></a>
-</div>
+<img width="1828" height="882" alt="image" src="https://github.com/user-attachments/assets/a556ed87-ba53-4458-a16a-6917b006b53d" />
 
-<p align="center">
-    <a target="_blank" href="https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md"><img src="https://img.shields.io/badge/docs-repository-00dc94?logo=github&style=flat.svg" /></a>
-    <a target="_blank" href="https://dev.algorand.co/algokit/algokit-intro"><img src="https://img.shields.io/badge/learn-AlgoKit-00dc94?logo=algorand&mac=flat.svg" /></a>
-    <a target="_blank" href="https://github.com/algorandfoundation/algokit-cli"><img src="https://img.shields.io/github/stars/algorandfoundation/algokit-cli?color=00dc94&logo=star&style=flat" /></a>
-    <a target="_blank" href="https://dev.algorand.co/algokit/algokit-intro"><img  src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Falgorandfoundation%2Falgokit-cli&countColor=%2300dc94&style=flat" /></a>
-</p>
+---
+Algo_SmartFreelance – Web3 Freelance Marketplace (POC)
+
+SmartFreelance is a **Web3-enabled freelance marketplace proof of concept** built on **Algorand TestNet**.  
+It demonstrates wallet-based identity, agreement-based payment flows, and NFT-based delivery proof.
+
+This project is a **frontend-focused POC** with mocked marketplace data and **real Algorand wallet interactions** for payments, asset minting, opt-ins, and transfers.
+
+> ⚠️ This is a Proof of Concept. No backend database or smart-contract escrow is used.
+
+---
+````md
+
+## Tech Stack
+
+### Frontend
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- @txnlab/use-wallet
+- Pera Wallet
+- LocalStorage (POC persistence)
+
+### Blockchain & Web3
+- Algorand TestNet
+- Algorand Standard Assets (ASA / NFT)
+- ARC3 metadata standard
+
+### Backend (POC Utility Service)
+- Python
+- FastAPI
+- Uvicorn
+- IPFS (Pinata) for NFT metadata upload
+- Environment-based configuration (`.env`)
 
 ---
 
-The Algorand AlgoKit CLI is the one-stop shop tool for developers building on the [Algorand network](https://www.algorand.com/).
-
-AlgoKit gets developers of all levels up and running with a familiar, fun and productive development environment in minutes. The goal of AlgoKit is to help developers build and launch secure, automated production-ready applications rapidly.
-
-[Install AlgoKit](#install) | [Quick Start Tutorial](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/tutorials/intro.md) | [Documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md)
-
-## What is AlgoKit?
-
-AlgoKit compromises of a number of components that make it the one-stop shop tool for developers building on the [Algorand network](https://www.algorand.com/).
-
-![AlgoKit components](https://raw.githubusercontent.com/algorandfoundation/algokit-cli/main/docs/imgs/algokit-map.png)
-
-AlgoKit can help you [**learn**](#learn), [**develop**](#develop) and [**operate**](#operate) Algorand solutions. It consists of [a number of repositories](https://github.com/search?q=org%3Aalgorandfoundation+algokit-&type=repositories), including this one.
-
-### Learn
-
-There are many learning resources on the [Algorand Developer Portal](https://dev.algorand.co/) and the [AlgoKit landing page](https://dev.algorand.co/algokit/algokit-intro) has a range of links to more learning materials. In particular, check out the [quick start tutorial](https://dev.algorand.co/getting-started/algokit-quick-start/).
-
-If you need help you can access both the [Algorand Discord](https://discord.gg/84AActu3at) (pro-tip: check out the algokit channel!) and the [Algorand Forum](https://forum.algorand.org/).
-
-We have also developed an [AlgoKit video series](https://www.youtube.com/@algodevs/playlists).
-
-### Develop
-
-AlgoKit helps you develop Algorand solutions:
-
-- **Interaction**: AlgoKit exposes a number of interaction methods, namely:
-  - [**AlgoKit CLI**](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md): A Command Line Interface (CLI) so you can quickly access AlgoKit capabilities
-  - [VS Code](https://code.visualstudio.com/): All AlgoKit project templates include VS Code configurations so you have a smooth out-of-the-box development experience using VS Code
-  - [lora](https://lora.algokit.io/): AlgoKit has integrations with lora; a web-based user interface that let's you visualise and interact with an Algorand network
-- **Getting Started**: AlgoKit helps you get started quickly when building new solutions:
-  - [**AlgoKit Templates**](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/init.md): Template libraries to get you started faster and quickly set up a productive dev experience
-- **Development**: AlgoKit provides SDKs, tools and libraries that help you quickly and effectively build high quality Algorand solutions:
-  - **AlgoKit Utils** ([Python](https://github.com/algorandfoundation/algokit-utils-py#readme) | [TypeScript](https://github.com/algorandfoundation/algokit-utils-ts#readme)): A set of utility libraries so you can develop, test, build and deploy Algorand solutions quickly and easily
-    - [Algorand SDKs](https://dev.algorand.co/reference/sdks/sdk-list/) - The core Algorand SDK providing Algorand protocol API calls, which AlgoKit Utils wraps, but still exposes for advanced scenarios
-  - [**Algorand Python**](https://github.com/algorandfoundation/puya): A semantically and syntactically compatible, typed Python language that works with standard Python tooling and allows you to express smart contracts (apps) and smart signatures (logic signatures) for deployment on the Algorand Virtual Machine (AVM).
-  - [**Algorand TypeScript (Beta)**](https://github.com/algorandfoundation/puya-ts): A semantically and syntactically compatible, typed TypeScript language that works with standard TypeScript tooling and allows you to express smart contracts (apps) and smart signatures (logic signatures) for deployment on the Algorand Virtual Machine (AVM). This language is currently in beta.
-  - [**TEALScript**](https://github.com/algorandfoundation/TEALScript): A subset of TypeScript that can be used to express smart contracts (apps) and smart signatures (logic signatures) for deployment on the Algorand Virtual Machine (AVM).
-  - [**AlgoKit LocalNet**](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md): A local isolated Algorand network so you can simulate real transactions and workloads on your computer
-
-### Operate
-
-AlgoKit can help you deploy and operate Algorand solutions.
-
-AlgoKit comes with out-of-the-box [Continuous Integration / Continuous Deployment (CI/CD) templates](https://github.com/algorandfoundation/algokit-python-template) that help you rapidly set up best-practice software delivery processes that ensure you build quality in and have a solution that can evolve
-
-## What can AlgoKit help me do?
-
-The set of capabilities supported by AlgoKit will evolve over time, but currently includes:
-
-- Quickly run, explore and interact with an isolated local Algorand network (LocalNet)
-- Building, testing, deploying and calling [Algorand Python](https://github.com/algorandfoundation/puya) / [Algorand TypeScript (Beta)](https://github.com/algorandfoundation/puya-ts) / [TEALScript](https://github.com/algorandfoundation/TEALScript) smart contracts
-
-For a user guide and guidance on how to use AlgoKit, please refer to the [docs](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md).
-
-Future capabilities are likely to include:
-
-- Quickly deploy [standardised](https://github.com/algorandfoundation/ARCs/#arcs-algorand-requests-for-comments), audited smart contracts
-- Building and deploying Algorand dApps
-
-## Is this for me?
-
-The target audience for this tool is software developers building applications on the Algorand network. A working knowledge of using a command line interfaces and experience using the supported programming languages is assumed.
-
-## How can I contribute?
-
-This is an open source project managed by the Algorand Foundation. See the [contributing page](https://github.com/algorandfoundation/algokit-cli/blob/main/CONTRIBUTING.md) to learn about making improvements to the CLI tool itself, including developer setup instructions.
-
-# Install
-
-> **Note** Refer to [Troubleshooting](#troubleshooting) for more details on mitigation of known edge cases when installing AlgoKit.
-
 ## Prerequisites
 
-The installation pre-requisites change depending on the method you use to install. Please refer to [Installation Methods](#installation-methods).
+Before running the project, ensure you have:
 
-Depending on the features you choose to leverage from the AlgoKit CLI, additional dependencies may be required.
-The AlgoKit CLI will tell you if you are missing one for a given command. These optional dependencies are:
+- **Node.js** v18 or newer
+- **npm**
+- **Python** 3.10+
+- **Pera Wallet** (mobile or browser)
+- Pera Wallet set to **Algorand TestNet**
+- Some **TestNet ALGO** in your wallet
+- A valid **Pinata JWT** (with IPFS write permissions)
 
-- **Git**: Essential for creating and updating projects from templates. Installation guide available at [Git Installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-- **Docker**: Necessary for running the AlgoKit LocalNet environment. Docker Compose version 2.5.0 or higher is required. See [Docker Installation](https://docs.docker.com/get-docker/).
-- **Python**: For those installing the AlgoKit CLI via `pipx` or building contracts using Algorand Python. **Minimum required version is Python 3.12+ when working with Algorand Python**. See [Python Installation](https://www.python.org/downloads/).
-- **Node.js**: For those working on frontend templates or building contracts using Algorand TypeScript or TEALScript. **Minimum required versions are Node.js `v22` and npm `v10`**. See [Node.js Installation](https://nodejs.org/en/download/).
+---
 
-> **Note**
-> If you have previously installed AlgoKit using `pipx` and would like to switch to a different installation method, please ensure that
-> you first uninstall the existing version by running `pipx uninstall algokit`. Once uninstalled, you can follow the installation instructions for your preferred platform.
+## Installation
 
-## Cross-platform installation
+Clone the repository and install dependencies:
 
-AlgoKit can be installed using OS specific package managers, or using the python tool [pipx](https://pypa.github.io/pipx/).
-See below for specific installation instructions.
+```bash
+git clone <your-repo-url>
+cd smartfreelance
+npm install
+````
 
-### Installation Methods
+---
 
-- [Windows](#install-algokit-on-windows)
-- [Mac](#install-algokit-on-mac)
-- [Linux](#install-algokit-on-linux)
-- [Universal via pipx](#install-algokit-with-pipx-on-any-os)
+## Running the Project (Development)
 
-## Install AlgoKit on Windows
+### Frontend
 
-> **Note**
-> AlgoKit is supported on Windows 10 1709 (build 16299) and later.
-> We only publish an x64 binary, however it also runs on ARM devices by default using the built in x64 emulation feature.
+Start the frontend development server:
 
-1. Ensure prerequisites are installed
-
-   - [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/) (should be installed by default on recent Windows 10 or later)
-   - [Git](https://github.com/git-guides/install-git#install-git-on-windows) (or `winget install git.git`)
-   - [Docker](https://docs.docker.com/desktop/install/windows-install/) (or `winget install docker.dockerdesktop`)
-     > **Note**
-     > See [our LocalNet documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/features/localnet.md#prerequisites) for more tips on installing Docker on Windows
-   - [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-
-2. Install using winget
-
-   ```shell
-   winget install algokit
-   ```
-
-3. [Verify installation](#verify-installation)
-
-### Maintenance
-
-Some useful commands for updating or removing AlgoKit in the future.
-
-- To update AlgoKit: `winget upgrade algokit`
-- To remove AlgoKit: `winget uninstall algokit`
-
-## Install AlgoKit on Mac
-
-> **Note**
-> AlgoKit is supported on macOS Big Sur (11) and later for both x64 and ARM (Apple Silicon)
-
-1. Ensure prerequisites are installed
-
-   - [Homebrew](https://docs.brew.sh/Installation)
-   - [Git](https://github.com/git-guides/install-git#install-git-on-mac) (should already be available if `brew` is installed)
-   - [Docker](https://docs.docker.com/desktop/install/mac-install/), (or `brew install --cask docker`)
-     > **Note**
-     > Docker requires MacOS 11+
-
-2. Install using Homebrew
-
-   ```shell
-   brew install algorandfoundation/tap/algokit
-   ```
-
-3. Restart the terminal to ensure AlgoKit is available on the path
-4. [Verify installation](#verify-installation)
-
-### Maintenance
-
-Some useful commands for updating or removing AlgoKit in the future.
-
-- To update AlgoKit: `brew upgrade algokit`
-- To remove AlgoKit: `brew uninstall algokit`
-
-## Install AlgoKit on Linux
-
-> **Note**
-> AlgoKit is compatible with Ubuntu 16.04 and later, Debian, RedHat, and any distribution that supports [Snap](https://snapcraft.io/docs/installing-snapd), but it is only supported on x64 architecture; ARM is not supported.
-
-1. Ensure prerequisites are installed
-
-   - [Snap](https://snapcraft.io/docs/installing-snapd) (should be installed by default on Ubuntu 16.04.4 LTS (Xenial Xerus) or later)
-   - [Git](https://github.com/git-guides/install-git#install-git-on-linux)
-   - [Docker](https://docs.docker.com/desktop/install/linux-install/)
-
-2. Install using snap
-
-   ```shell
-   sudo snap install algokit --classic
-   ```
-
-   > For detailed guidelines per each supported linux distro, refer to [Snap Store](https://snapcraft.io/algokit).
-
-3. [Verify installation](#verify-installation)
-
-### Maintenance
-
-Some useful commands for updating or removing AlgoKit in the future.
-
-- To update AlgoKit: `snap refresh algokit`
-- To remove AlgoKit: `snap remove --purge algokit`
-
-## Install AlgoKit with pipx on any OS
-
-1. Ensure desired prerequisites are installed
-
-   - [Python 3.10+](https://www.python.org/downloads/)
-   - [pipx](https://pypa.github.io/pipx/installation/)
-   - [Git](https://github.com/git-guides/install-git)
-   - [Docker](https://docs.docker.com/get-docker/)
-
-2. Install using pipx
-
-   ```shell
-   pipx install algokit
-   ```
-
-3. Restart the terminal to ensure AlgoKit is available on the path
-4. [Verify installation](#verify-installation)
-
-### Maintenance
-
-Some useful commands for updating or removing AlgoKit in the future.
-
-- To update AlgoKit: `pipx upgrade algokit`
-- To remove AlgoKit: `pipx uninstall algokit`
-
-## Verify installation
-
-Verify AlgoKit is installed correctly by running `algokit --version` and you should see output similar to:
-
-```
-algokit, version 1.0.1
+```bash
+npm run dev
 ```
 
-> **Note**
-> If you get receive one of the following errors:
+Frontend will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Backend (NFT Minting Utility – Python)
+
+A lightweight **FastAPI backend** is used as a **utility service** to support the NFT minting flow.
+
+### Responsibilities
+
+The backend is responsible for:
+
+* Generating **ARC3-compliant NFT metadata**
+* Injecting **dynamic data** received from the frontend, such as:
+
+  * Client wallet address
+  * Freelancer wallet address
+  * Agreement ID
+  * Job title / description
+  * Timestamp and delivery reference
+* Uploading metadata JSON to **IPFS (Pinata)**
+* Returning the **metadata URI** to the frontend for minting
+
+> ⚠️ The backend does **NOT**:
 >
-> - `command not found: algokit` (bash/zsh)
-> - `The term 'algokit' is not recognized as the name of a cmdlet, function, script file, or operable program.` (PowerShell)
->
-> Then ensure that `algokit` is available on the PATH by running `pipx ensurepath` and restarting the terminal.
+> * Store marketplace data
+> * Hold private keys
+> * Sign Algorand transactions
+> * Mint assets on behalf of users
 
-It is also recommended that you run `algokit doctor` to verify there are no issues in your local environment and to diagnose any problems if you do have difficulties running AlgoKit. The output of this command will look similar to:
+All Algorand transactions are **signed by the user’s wallet** in the frontend.
 
-```
-timestamp: 2023-03-27T01:23:45+00:00
-AlgoKit: 1.0.1
-AlgoKit Python: 3.11.1 (main, Dec 23 2022, 09:28:24) [Clang 14.0.0 (clang-1400.0.29.202)] (location: /Users/algokit/.local/pipx/venvs/algokit)
-OS: macOS-13.1-arm64-arm-64bit
-docker: 20.10.21
-docker compose: 2.13.0
-git: 2.37.1
-python: 3.10.9 (location:  /opt/homebrew/bin/python)
-python3: 3.10.9 (location:  /opt/homebrew/bin/python3)
-pipx: 1.1.0
-poetry: 1.3.2
-node: 18.12.1
-npm: 8.19.2
-brew: 3.6.18
+---
 
-If you are experiencing a problem with AlgoKit, feel free to submit an issue via:
-https://github.com/algorandfoundation/algokit-cli/issues/new
-Please include this output, if you want to populate this message in your clipboard, run `algokit doctor -c`
+## Backend Environment Configuration (`.env`)
+
+The backend uses an **environment file** to securely manage secrets and configuration.
+
+Create a `.env` file in the backend root directory:
+
+```env
+PINATA_JWT=your_pinata_jwt_here
+PINATA_GATEWAY=https://gateway.pinata.cloud
 ```
 
-Per the above output, the doctor command output is a helpful tool if you need to ask for support or [raise an issue](https://github.com/algorandfoundation/algokit-cli/issues/new).
+### Environment Variables Explained
 
-## Troubleshooting
+| Variable         | Description                                                |
+| ---------------- | ---------------------------------------------------------- |
+| `PINATA_JWT`     | Pinata JWT with permission to upload JSON metadata to IPFS |
+| `PINATA_GATEWAY` | Public IPFS gateway used to resolve metadata               |
 
-This section addresses specific edge cases and issues that some users might encounter when interacting with the CLI. The following table provides solutions to known edge cases:
+> The Pinata JWT is **never exposed to the frontend** and is only used server-side.
 
-| Issue Description                                                                                                                                   | OS(s) with observed behaviour                             | Steps to mitigate                                                                                                                                                                                                                                                                                                                      | References                                          |
-| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| This scenario may arise if installed `python` was build without `--with-ssl` flag enabled, causing pip to fail when trying to install dependencies. | Debian 12                                                 | Run `sudo apt-get install -y libssl-dev` to install the required openssl dependency. Afterwards, ensure to reinstall python with `--with-ssl` flag enabled. This includes options like [building python from source code](https://medium.com/@enahwe/how-to-06bc8a042345) or using tools like [pyenv](https://github.com/pyenv/pyenv). | <https://github.com/actions/setup-python/issues/93> |
-| `poetry install` invoked directly or via `algokit project bootstrap all` fails on `Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE)`.      | `MacOS` >=14 using `python` 3.13 installed via `homebrew` | Install dependencies deprecated in `3.13` and latest MacOS versions via `brew install pkg-config`, delete the virtual environment folder and retry the `poetry install` command invocation.                                                                                                                                            | N/A                                                 |
+---
+
+## Starting the Backend Server
+
+Run the FastAPI backend using Uvicorn:
+
+```bash
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+* Backend API available at:
+
+  ```
+  http://localhost:8000
+  ```
+* Runs in **hot-reload mode** for development
+* Required for **Delivery NFT metadata generation**
+
+---
+Understood. Below is the **fully corrected, reviewer-safe README**, rewritten **in the exact same structure and Markdown style you provided**, with **only precise clarifications added**.
+Nothing experimental is removed; nothing exaggerated remains.
+
+You can **copy–paste this as-is**.
+
+---
+
+## Wallet Connection
+
+* Click **Connect Wallet** on the onboarding screen
+* Select **Pera Wallet**
+* Approve the connection in your wallet
+
+After connection:
+
+* If **Auto-enter dashboard** is enabled → you enter the dashboard immediately
+* If disabled → click **Enter Dashboard**
+
+The auto-enter behavior is stored in **LocalStorage** and can be toggled on the onboarding screen.
+
+---
+
+## Dashboard Overview
+
+The application supports **two roles**:
+
+* **Client**
+* **Freelancer**
+
+Roles are **UI-based** and can be switched at any time from the dashboard.
+There is no on-chain role enforcement in this POC.
+
+---
+
+## Client Workflow
+
+### 1. Browse Freelancers
+
+* View a list of freelancers (mocked data)
+* Send invitations to freelancers (POC behavior)
+
+---
+
+### 2. Post a Job
+
+Create a job with:
+
+* Title
+* Description
+* Category
+* Budget (ALGO)
+
+Jobs are stored locally using **LocalStorage**.
+
+**Rules:**
+
+* A job **cannot be deleted** if:
+
+  * A freelancer has submitted a proposal
+  * An agreement already exists
+* When deletion is not allowed, the delete button becomes **locked / disabled**
+
+---
+
+### 3. Agreements
+
+* View agreements created from accepted proposals
+* Fund agreements using ALGO
+* Review delivery
+* Approve delivery to close the agreement
+
+---
+
+## Freelancer Workflow
+
+### 1. Browse Jobs
+
+* View all posted jobs
+* Submit proposals with:
+
+  * Message
+  * Proposed ALGO amount
+
+---
+
+### 2. My Proposals
+
+* View submitted proposals
+* A proposal can be **deleted only if**:
+
+  * It has **not** been accepted
+* Once an agreement exists, the proposal becomes **locked**
+
+---
+
+### 3. Agreements
+
+* View active agreements
+* Deliver work
+* Mint Delivery NFTs
+* Wait for client approval
+
+---
+
+## Agreement Workflow (On-chain Actions)
+
+All blockchain interactions happen inside the **Agreement Details** screen.
+
+Marketplace data (jobs, proposals, invites, agreements) is mocked and stored locally using **LocalStorage**.
+
+On-chain actions include:
+
+* ALGO payments
+* ASA (NFT) minting
+* Asset opt-in
+* Asset transfer
+
+---
+
+## Delivery NFT Model (Important)
+
+For each completed agreement, **one Delivery NFT (Algorand ASA)** is minted with a **total supply of 2**.
+
+This allows **both parties to hold one copy** of the same Delivery NFT.
+
+* **Freelancer keeps one copy**
+
+  * Proof that the work was delivered
+* **Client receives one copy**
+
+  * Proof that the work was received and approved
+
+Both copies:
+
+* Share the same **asset ID**
+* Share the same **ARC3 metadata**
+* Represent immutable on-chain proof of delivery
+
+> Note: The concept of “reserving” the client copy is enforced by the **application flow**, not by a smart contract.
+
+---
+
+## Agreement Payment Model (Important Clarification)
+
+This POC **does NOT use a smart-contract escrow**.
+
+* Funding is performed via a **direct ALGO payment**
+* Funds are **not locked on-chain**
+* Approval does **not release funds** (funds are already paid)
+
+The flow simulates an escrow-style lifecycle **at the UI level only**.
+
+---
+
+## 1) Fund Agreement (Client)
+
+**Purpose:** simulate an escrow-style funding step.
+
+Steps:
+
+1. Open **Agreement Details** as Client
+2. Click **Pay ALGO (Fund)**
+3. Pera Wallet opens a payment transaction
+4. Confirm / sign
+5. Wait for confirmation
+
+Result:
+
+* Agreement status becomes **FUNDED**
+* Delivery actions become available
+
+---
+
+## 2) Deliver Work & Mint Delivery NFT (Freelancer)
+
+**Purpose:** create on-chain proof of delivery.
+
+Steps:
+
+1. Open **Agreement Details** as Freelancer
+2. Click **Mint Delivery NFT**
+3. Delivery metadata is generated and uploaded to IPFS (Pinata)
+4. Wallet opens the mint transaction
+5. Confirm / sign
+6. Wait for confirmation
+
+On-chain result:
+
+* One Delivery NFT ASA is created
+* Total supply = 2
+* Freelancer initially holds 1 copy
+* Second copy is intended for the client
+
+Agreement status becomes **DELIVERED**.
+
+---
+
+## 3) Client Opt-in to Delivery NFT (Required)
+
+### Why opt-in is required
+
+Algorand requires any account receiving an ASA (NFT) to **opt-in first**.
+
+Since the client receives **one copy of the Delivery NFT**:
+
+➡️ **Client MUST opt-in to the Delivery NFT asset**
+
+### Opt-in steps:
+
+1. Open **Agreement Details** as Client
+2. Click **Opt-in to Delivery NFT**
+3. Pera Wallet opens a 0-ALGO opt-in transaction
+4. Confirm / sign
+5. Wait for confirmation
+
+Without opt-in, NFT transfer will fail.
+
+---
+
+## 4) Send Client NFT Copy (Freelancer)
+
+Steps:
+
+1. Client completes opt-in
+2. Freelancer clicks **Send Client Copy**
+3. Wallet opens asset transfer transaction
+4. Confirm / sign
+
+Result:
+
+* Client receives 1 of 2 NFT copies
+* Both parties now hold delivery proof
+
+---
+
+## 5) Approve Delivery & Close Agreement (Client)
+
+Steps:
+
+1. Review delivery NFT and metadata
+2. Click **Approve Delivery**
+3. Agreement status becomes **APPROVED**
+
+Result:
+
+* Agreement is completed
+* Both parties hold immutable NFT proof
+
+> Approval state is stored locally and is not enforced on-chain.
+
+---
+
+## Summary of NFT Ownership
+
+| Asset              | Owner             | Purpose                 |
+| ------------------ | ----------------- | ----------------------- |
+| Delivery NFT (1/2) | Freelancer wallet | Proof of work delivered |
+| Delivery NFT (1/2) | Client wallet     | Proof of work received  |
+
+---
+
+## Local Storage (POC)
+
+Stored in browser **LocalStorage**:
+
+* Jobs
+* Proposals
+* Agreements
+* Invites
+* UI preferences (auto-enter dashboard)
+
+Clearing browser storage resets the marketplace state.
+
+---
+
+## Available Commands
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Notes & Limitations
+
+* Proof of Concept only
+* No backend or database
+* No smart-contract escrow
+* Marketplace data is browser-local
+* NFT metadata depends on IPFS (Pinata)
+* Designed for **Algorand TestNet only**
+* Not production-ready
+
+---
+## Future Work & Platform Expansion
+
+This Proof of Concept is designed as a **foundation** for a larger, production-ready Web3 freelance platform.
+
+Planned future improvements include:
+
+### Backend & Database
+- Introduction of a persistent backend with a database (e.g. PostgreSQL)
+- Server-side storage for:
+  - Users
+  - Jobs
+  - Proposals
+  - Agreements
+  - Activity history
+- Multi-device consistency (not browser-local)
+
+### Smart Contracts & Escrow
+- Replacement of UI-simulated flows with **Algorand smart contracts**
+- On-chain agreement logic where:
+  - Funds are locked in escrow
+  - Delivery, approval, and payout are enforced by contract rules
+- Automatic execution of agreement outcomes:
+  - No manual trust between parties
+  - No waiting for off-chain actions
+  - No unilateral fund control
+
+### Fully Enforced Agreement Lifecycle
+- Agreement creation, funding, delivery, approval, and payout handled **entirely on-chain**
+- Smart contracts act as the single source of truth
+- NFTs and payments become contract-governed artifacts
+
+### Platform-Level Features
+- Dispute resolution mechanisms
+- Reputation and history tied to wallet addresses
+- Multi-role permissions enforced at contract level
+- MainNet deployment readiness
+
+This POC demonstrates the **user experience and technical feasibility** of the platform, while future phases focus on **trust minimization, automation, and scalability**.
+
+---
+
+## Author & Rights
+
+**All rights of this idea are reserved to Alexander Issa.**
+
+
